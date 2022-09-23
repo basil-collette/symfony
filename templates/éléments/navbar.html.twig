@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container-fluid">
+        
+        <img class="logo mr-4" src="{{ asset('assets/img/symfony_white_03.PNG') }}" height="30px" />
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="w-100 navbar-nav me-auto">
+                
+                <!-- MENU NAVIGATION _______________________________________________________________________________________________________________ MENU NAVIGATION -->
+                
+                <div id="appNav" class="d-flex flex-row w-100">
+                    <li class="nav-item">
+                        <a class="btn btn-lg btn-primary" href="{{path('app_home')}}">Accueil
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item ml-4">
+                        <a class="btn btn-lg btn-primary" href="{{path('app_article_getall')}}">Articles
+                        </a>
+                    </li>
+                </div>
+
+                <!-- MENU COMPTE _______________________________________________________________________________________________________________ MENU COMPTE -->
+                
+                <div id="accountNav" class="d-flex flex-row">
+                    {% if not is_granted('ROLE_USER') %}
+                        <a class="btn btn-lg btn-primary text-nowrap" href="{{path('app_login')}}">Se connecter</a>
+                        
+                        <a class="btn btn-lg btn-primary text-nowrap ml-4" href="{{path('app_registration')}}">S'inscrire</a>
+					{% else %}
+					    <a class="btn btn-lg btn-primary text-nowrap" href="{{path('app_profil')}}">Profil</a>
+					
+                        <a class="btn btn-lg btn-danger text-nowrap ml-4" href="{{path('app_logout')}}">Se déconnecter</a>
+                    {% endif %}
+                    
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-lg btn-warning ml-4" href="{{ path('admin') }}">Administrer</a>
+                    {% endif %}
+                </div>
+            </ul>
+	
+        </div>
+    </div>
+
+</nav>
+
+
+
+
+

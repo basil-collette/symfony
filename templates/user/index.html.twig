@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+
+</style>
+
+<div class="d-flex flex-column shadow-lg py-5 px-5 mb-5 bg-white justify-content-center align-items-center" style="border-radius: 15px;">
+
+    <p>PROFIL {{ user.username }}</p>
+    <br />
+    {{ form_start(userForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-center'}}) }}
+            
+        <div class="w-100 d-flex flex-column align-items-center my-2">
+            {{ form_label(userForm, 'Nom Utilisateur') }}
+            {{ form_widget(userForm.username) }}
+        </div>
+
+        <div class="w-100 d-flex flex-column align-items-center my-2">
+            {{ form_label(userForm, 'Roles') }}
+            {{ form_widget(userForm.roles, {'attr': {'class': 'w-100 d-flex flex-row justify-content-around'}}) }}
+        </div>
+                        
+        <div class="w-100 d-flex flex-column align-items-center my-2">
+            {{ form_label(userForm, 'Password') }}
+            {{ form_widget(userForm.password) }}
+        </div>
+            
+        <div class="w-100 d-flex flex-column align-items-center my-2">
+            {{ form_label(userForm, 'Password Bis') }}
+            {{ form_widget(userForm.passwordBis) }}
+        </div>
+   
+        <button type="submit" class="btn btn-lg btn-primary align-self-center">Register</button>
+    {{ form_end(userForm) }}
+</div>
+{% endblock %}

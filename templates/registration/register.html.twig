@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-column shadow-lg py-5 px-5 mb-5 bg-white justify-content-center align-items-center" style="border-radius: 15px;">
+
+        {% if nomUser is defined %}
+            <p>{{ nomUser }}</p>
+        {% endif %}
+
+        <h1>Inscription</h1>
+        
+        <br />
+        
+        {{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-start'}}) }}
+            
+            <div class="w-100 d-flex flex-row justify-content-between my-2">
+                {{ form_label(registrationForm, 'Nom Utilisateur') }}
+                {{ form_widget(registrationForm.pseudo) }}
+            </div>
+                        
+            <div class="w-100 d-flex flex-row justify-content-between my-2">
+                {{ form_label(registrationForm, 'Password') }}
+                {{ form_widget(registrationForm.plainPassword) }}
+            </div>
+            
+            <div class="w-100 d-flex flex-row justify-content-between my-2">
+                {{ form_label(registrationForm, 'Password Bis') }}
+                {{ form_widget(registrationForm.plainPasswordBis) }}
+            </div>
+   
+            {#{{ form_row(registrationForm.agreeTerms) }}#}
+
+            <button type="submit" class="btn btn-lg btn-primary align-self-center">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+    
+{% endblock %}

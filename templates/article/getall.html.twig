@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+    p {
+        margin: 0px;
+    }
+    .hover-bg-gray:hover {
+        background: rgb(200, 200, 200);
+        text-decoration: none;
+    }
+</style>
+
+<div class="h-100 w-75 d-flex flex-column justify-content-start align-items-center" style="padding-top: 40px; padding-bottom: 40px;">
+        
+    <h1 class="">Tout Les Articles</h1>
+        
+    {% for article in paginatedArticles %}
+
+        {{ include('./article/article.html.twig') }}
+        
+    {% endfor %}
+
+    <div class="bg-white text-primary d-flex flex-row justify-content-center rounded mt-4 mb-4 w-100">
+        {{ knp_pagination_render(paginatedArticles) }}
+    </div>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<a class="bg-white w-100 d-flex flex-column align-items-start shadow-lg p-3 hover-bg-gray mt-4" href="/article_get/{{article.id}}" style="border-radius:15px;"> {# array('id' => article.id) #}
+    <style>
+        .hover-bg-gray:hover {
+            background: rgb(200, 200, 200);
+            text-decoration: none;
+        }
+    </style>
+    
+    <p class="">
+        {{ article.titre }}
+    </p>                
+
+    <p class="">
+        {{ article.contenu }}
+    </p>
+
+    <div class="w-100 d-flex flex-row justify-content-between align-items-center text-secondary">
+        <p class="">
+            {{ article.auteur.username }}
+        </p>
+
+        <p class="">
+            {{ article.datetime|date("d/m/Y") }}
+        </p>
+    </div>
+
+    {% if false %}
+        {% include 'get.html.twig' %}
+    {% endif %}
+</a>

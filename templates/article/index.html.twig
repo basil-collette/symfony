@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+
+<div class="d-flex flex-column shadow-lg py-5 px-5 mb-5 bg-white justify-content-center align-items-center container" style="border-radius: 15px;">
+
+    {{ form_start(articleForm, {'attr': {'class': 'w-100 d-flex flex-column'}}) }}
+            
+        {{ form_widget(articleForm.titre, { 'attr': { 'placeholder': 'titre...', 'class': '' } }) }}
+        {{ form_widget(articleForm.contenu, { 'attr': { 'placeholder': 'contenu...', 'class': 'w-100 mt-2' } }) }}
+
+        <button type="submit" class="mt-2 btn btn-lg btn-primary align-self-center">Post</button>
+    {{ form_end(articleForm) }}
+</div>
+{% endblock %}

@@ -15,7 +15,9 @@
         
     <h1 class="">Tout Les Articles</h1>
     
-    <a class="btn btn-lg btn-success text-nowrap" href="{{path('app_article_write')}}">Ecrire un article</a>
+    {% if is_granted('ROLE_USER') %}
+		<a class="btn btn-lg btn-success text-nowrap" href="{{path('app_article_write')}}">Ecrire un article</a>
+    {% endif %}
         
     {% for article in paginatedArticles %}
 
